@@ -27,13 +27,14 @@ pip install -r requirements.txt
 ---
 
 ## Project structure
+```python
 .
 ├── main.py
 ├── genetic-feature_selection.py       # Core GA feature selection logic
 ├── data/
 │   └── wine.csv                  # Example dataset
 └── README.md                    # This file
-
+```
 
 ## Usage
 
