@@ -1,16 +1,16 @@
-# Genetic Feature Selection
+# Genetic Feature Selection and Optimization
 
-This project implements a Genetic Algorithm (GA) for feature selection on classification datasets using Python. It supports multiple classifiers and allows easy customization of GA parameters.
+This project implements feature selection using Genetic Algorithms (GA) for classification tasks. It supports multiple classifiers and hyperparameter optimization methods for SVM and Random Forest, as well as Elastic Net-based feature selection.
 
 ---
 
 ## Features
 
-- Feature selection with Genetic Algorithm
-- Supports classifiers: RandomForest, SVM, LogisticRegression
-- Configurable scoring metrics and cross-validation folds
-- Easy-to-use Python function API
-- Outputs selected features and class labels for further analysis
+- Feature selection with Genetic Algorithms
+- Supported classifiers: Random Forest, SVM, Elastic Net
+- Hyperparameter optimization using GA and Grid Search for RF and SVM
+- Flexible configuration with CSV datasets and JSON for storing selected features
+- Examples and experiments provided in a Jupyter Notebook (main.ipynb)
 
 ---
 
@@ -19,45 +19,37 @@ This project implements a Genetic Algorithm (GA) for feature selection on classi
 Clone this repository and install dependencies:
 
 ```bash
-git clone https://github.com/itziar-mengual/genetic-feature-selection.git
-cd genetic-feature-selection
+git clone https://github.com/itziar-mengual/ga-feature-selection-and-optimization.git
+cd ga-feature-selection-and-optimization
 pip install -r requirements.txt
+
 ```
 
 ---
 
 ## Project structure
+
 ```python
 .
-├── main.py
-├── genetic-feature_selection.py       # Core GA feature selection logic
 ├── data/
-│   └── wine.csv                  # Example dataset
-└── README.md                    # This file
+│   ├── wine.csv                     # Example dataset
+│   └── selected_features.json       # Stored selected features results
+├── feature_selection/
+│   ├── elastic_net_feature_selection.py   # Elastic Net feature selection
+│   └── ga_feature_selection.py              # Genetic Algorithm feature selection
+├── optimization/
+│   ├── ga_rf.py                  # GA optimization for Random Forest
+│   ├── ga_svm.py                 # GA optimization for SVM
+│   ├── grid_search_rf.py         # Grid Search for Random Forest
+│   └── grid_search_svm.py        # Grid Search for SVM
+├── main.ipynb                   # Notebook with usage examples and experiments
+├── README.md                    # Project documentation
+└── requirements.txt             # Project dependencies
+
 ```
 
-## Usage
-
-Import and use the main function `run_feature_selection_from_df` from `genetic_feature_selection.py` in your Python scripts or interactive sessions.
-
-Example:
-
-```python
-import pandas as pd
-from genetic_feature_selection import run_feature_selection_from_df
-
-df = pd.read_csv('data/wine.csv')
-
-selected_features, classes = run_feature_selection_from_df(
-    df,
-    target_col='Type',
-    classifier='SVM',
-    n_gen=10
-)
-
-print("Selected features:", selected_features)
-```
+---
 
 ## Author
-Itziar Mengual, 2025
 
+Itziar Mengual, 2025
